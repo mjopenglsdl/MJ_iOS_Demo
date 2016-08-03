@@ -6,8 +6,16 @@
 //  Copyright © 2016 minjie. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface FontHeightManager : NSObject
+
+@property(assign,nonatomic) CGFloat fontHeightOf12;
+@property(assign,nonatomic) CGFloat fontHeightOf13;
+@property(assign,nonatomic) CGFloat fontHeightOf14;
+@property(assign,nonatomic) CGFloat fontHeightOf15;
+@property(assign,nonatomic) CGFloat fontHeightOf16;
+
++ (FontHeightManager *)sharedManager;
 
 @end

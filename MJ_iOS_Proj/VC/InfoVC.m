@@ -7,11 +7,11 @@
 //
 
 #import "InfoVC.h"
-#import "UITextField+Util.h"
+#import "UITextField+Ex.h"
 #import "Masonry.h"
 #import "UIMacro.h"
 
-#define BTN_ADD_WIDTH 40.0f
+#define BTN_ADD_WIDTH 60.0f
 
 
 @implementation InfoVC
@@ -45,7 +45,7 @@
     UITextView *txtvContent=[[UITextView alloc]init];
     
     UIButton *btnAdd=[[UIButton alloc]init];
-    [btnAdd setTitle:@"Add" forState:UIControlStateNormal];
+    [btnAdd setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
     
     UIButton *btnSave=[[UIButton alloc]init];
     [btnSave setTitle:@"Save" forState:UIControlStateNormal];
@@ -57,7 +57,7 @@
 
 
     [txtfName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.view.mas_top).mas_offset(NAV_AND_STATUS_BAR_HEIGHT+WIDGET_COMMON_OFFSET);
+        make.top.mas_equalTo(self.view.mas_top).mas_offset(NAV_AND_STATUS_BAR_HEIGHT+WIDGET_VERTI_MARGIN);
         make.left.mas_equalTo(self.view.mas_left).mas_offset(WIDGET_HORI_MARGIN);
         make.right.mas_equalTo(self.view.mas_right).mas_offset(-WIDGET_HORI_MARGIN);
         make.height.mas_equalTo(TEXTFIELD_HEIGHT);
@@ -72,7 +72,7 @@
     
     [btnAdd mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(txtvContent.mas_bottom).mas_offset(WIDGET_COMMON_OFFSET);
-        make.centerX.mas_equalTo(self.view.mas_centerX);
+        make.left.mas_equalTo(self.view.mas_left).mas_offset(WIDGET_HORI_MARGIN);
         make.width.mas_equalTo(BTN_ADD_WIDTH);
         make.height.mas_equalTo(BTN_ADD_WIDTH);
     }];
@@ -84,6 +84,7 @@
         make.height.mas_equalTo(BUTTON_HEIGHT);
     }];
 }
+
 
 #pragma mark - Actions
 - (void)action_swipeLeft:(id)sender

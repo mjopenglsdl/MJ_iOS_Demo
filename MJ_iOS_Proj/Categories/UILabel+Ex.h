@@ -1,5 +1,5 @@
 //
-//  UILabel+Util.h
+//  UILabel+Ex.h
 //  MJ_iOS_Proj
 //
 //  Created by minjie on 03/08/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UILabel (Util)
+@interface UILabel (Ex)
 -(instancetype)initWithFont:(UIFont *)font color:(UIColor *)color;
 
 @end

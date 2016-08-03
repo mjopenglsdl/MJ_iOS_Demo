@@ -1,5 +1,5 @@
 //
-//  UIView+Ex.h
+//  NSString+Ex.h
 //  MJ_iOS_Proj
 //
 //  Created by minjie on 03/08/16.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Ex)
-- (CGSize)sizeWithFontSize:(UIFont*)aFont
-               displaySize:(CGSize)aSize;
+@interface NSString (Ex)
+- (CGSize)sizeWithFontSize:(UIFont*)aFont displaySize:(CGSize)aSize;
 
 @end

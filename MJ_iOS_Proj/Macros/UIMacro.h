@@ -27,11 +27,28 @@
 #define NAV_AND_STATUS_BAR_HEIGHT (NAV_BAR_HEIGHT+STATUS_BAR_HEIGHT)
 
 /// widgets dimensions
-#define WIDGET_COMMON_OFFSET (SCREEN_HEIGHT*0.1)
+#define WIDGET_COMMON_OFFSET 30.0f
+
 #define WIDGET_HORI_MARGIN 20.0f
+#define WIDGET_VERTI_MARGIN 24.0f
+
 
 #define TEXTFIELD_HEIGHT 34.0f
 #define BUTTON_HEIGHT 40.0f
+
+
+/// fonts
+#define fontHeight_12 ([FontHeightManager sharedManager].fontHeightOf12)
+#define fontHeight_13 ([FontHeightManager sharedManager].fontHeightOf13)
+#define fontHeight_14 ([FontHeightManager sharedManager].fontHeightOf14)
+#define fontHeight_15 ([FontHeightManager sharedManager].fontHeightOf15)
+#define fontHeight_16 ([FontHeightManager sharedManager].fontHeightOf16)
+
+#define Font_Size12 [UIFont systemFontOfSize:12.0f]
+#define Font_Size13 [UIFont systemFontOfSize:13.0f]
+#define Font_Size14 [UIFont systemFontOfSize:14.0f]
+#define Font_Size15 [UIFont systemFontOfSize:15.0f]
+#define Font_Size16 [UIFont systemFontOfSize:16.0f]
 
 
 #endif /* UIMacro_h */

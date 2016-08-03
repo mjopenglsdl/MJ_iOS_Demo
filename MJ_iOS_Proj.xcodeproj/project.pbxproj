@@ -18,8 +18,14 @@
 		3546C2091D51800800EC66A9 /* InfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2081D51800800EC66A9 /* InfoVC.m */; };
 		3546C20C1D51801900EC66A9 /* DiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C20B1D51801900EC66A9 /* DiscoverVC.m */; };
 		3546C20E1D5183BE00EC66A9 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3546C20D1D5183BE00EC66A9 /* README.md */; };
-		3546C2121D51928800EC66A9 /* CUSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2111D51928800EC66A9 /* CUSTextField.m */; };
-		3546C2191D51939D00EC66A9 /* UITextField+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2181D51939D00EC66A9 /* UITextField+Util.m */; };
+		3546C2191D51939D00EC66A9 /* UITextField+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2181D51939D00EC66A9 /* UITextField+Ex.m */; };
+		3546C2331D51D21F00EC66A9 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3546C2311D51D21F00EC66A9 /* add@2x.png */; };
+		3546C2341D51D21F00EC66A9 /* add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3546C2321D51D21F00EC66A9 /* add@3x.png */; };
+		3546C2371D51D63100EC66A9 /* UILabel+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2361D51D63100EC66A9 /* UILabel+Ex.m */; };
+		3546C23F1D51DD0300EC66A9 /* MomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C23E1D51DD0300EC66A9 /* MomentCell.m */; };
+		3546C2431D51E12900EC66A9 /* UIView+TTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2421D51E12900EC66A9 /* UIView+TTCategory.m */; };
+		3546C2491D51E3B400EC66A9 /* FontHeightManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2481D51E3B400EC66A9 /* FontHeightManager.m */; };
+		3546C2561D51E70300EC66A9 /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2551D51E70300EC66A9 /* NSString+Ex.m */; };
 		D8DB4099EAE2DC4210CB534B /* libPods-MJ_iOS_ProjTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 772A42204E65CBF4257780E1 /* libPods-MJ_iOS_ProjTests.a */; };
 /* End PBXBuildFile section */
 
@@ -54,10 +60,20 @@
 		3546C20A1D51801900EC66A9 /* DiscoverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverVC.h; sourceTree = "<group>"; };
 		3546C20B1D51801900EC66A9 /* DiscoverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverVC.m; sourceTree = "<group>"; };
 		3546C20D1D5183BE00EC66A9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		3546C2101D51928800EC66A9 /* CUSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSTextField.h; sourceTree = "<group>"; };
-		3546C2111D51928800EC66A9 /* CUSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSTextField.m; sourceTree = "<group>"; };
-		3546C2171D51939D00EC66A9 /* UITextField+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Util.h"; sourceTree = "<group>"; };
-		3546C2181D51939D00EC66A9 /* UITextField+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Util.m"; sourceTree = "<group>"; };
+		3546C2171D51939D00EC66A9 /* UITextField+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Ex.h"; sourceTree = "<group>"; };
+		3546C2181D51939D00EC66A9 /* UITextField+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Ex.m"; sourceTree = "<group>"; };
+		3546C2311D51D21F00EC66A9 /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
+		3546C2321D51D21F00EC66A9 /* add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@3x.png"; sourceTree = "<group>"; };
+		3546C2351D51D63100EC66A9 /* UILabel+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Ex.h"; sourceTree = "<group>"; };
+		3546C2361D51D63100EC66A9 /* UILabel+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Ex.m"; sourceTree = "<group>"; };
+		3546C23D1D51DD0300EC66A9 /* MomentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentCell.h; sourceTree = "<group>"; };
+		3546C23E1D51DD0300EC66A9 /* MomentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentCell.m; sourceTree = "<group>"; };
+		3546C2411D51E12900EC66A9 /* UIView+TTCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TTCategory.h"; sourceTree = "<group>"; };
+		3546C2421D51E12900EC66A9 /* UIView+TTCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TTCategory.m"; sourceTree = "<group>"; };
+		3546C2471D51E3B400EC66A9 /* FontHeightManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontHeightManager.h; sourceTree = "<group>"; };
+		3546C2481D51E3B400EC66A9 /* FontHeightManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontHeightManager.m; sourceTree = "<group>"; };
+		3546C2541D51E70300EC66A9 /* NSString+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ex.h"; sourceTree = "<group>"; };
+		3546C2551D51E70300EC66A9 /* NSString+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ex.m"; sourceTree = "<group>"; };
 		4CB00AC84CC0F730D0A7209F /* Pods-MJ_iOS_ProjTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_ProjTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_ProjTests/Pods-MJ_iOS_ProjTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C26E0F5234B720D5F9CA943 /* Pods-MJ_iOS_Proj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_Proj.release.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_Proj/Pods-MJ_iOS_Proj.release.xcconfig"; sourceTree = "<group>"; };
 		71C19DA2C7C9D92C35AE0D36 /* Pods-MJ_iOS_ProjTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_ProjTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_ProjTests/Pods-MJ_iOS_ProjTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,10 +127,11 @@
 			children = (
 				3546C2051D517F2300EC66A9 /* Macros */,
 				3546C2131D5192FA00EC66A9 /* Categories */,
-				3546C2031D517F0900EC66A9 /* Model */,
+				3546C2461D51E37F00EC66A9 /* Util */,
 				3546C2041D517F1700EC66A9 /* Service */,
-				3546C2011D517EF700EC66A9 /* VC */,
+				3546C2031D517F0900EC66A9 /* Model */,
 				3546C2021D517EFF00EC66A9 /* View */,
+				3546C2011D517EF700EC66A9 /* VC */,
 				350600151D50AC4B00DAFF6C /* AppDelegate.h */,
 				350600161D50AC4B00DAFF6C /* AppDelegate.m */,
 				3506001E1D50AC4B00DAFF6C /* Assets.xcassets */,
@@ -161,8 +178,8 @@
 		3546C2021D517EFF00EC66A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3546C2101D51928800EC66A9 /* CUSTextField.h */,
-				3546C2111D51928800EC66A9 /* CUSTextField.m */,
+				3546C23D1D51DD0300EC66A9 /* MomentCell.h */,
+				3546C23E1D51DD0300EC66A9 /* MomentCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +210,8 @@
 		3546C20F1D51866500EC66A9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3546C2311D51D21F00EC66A9 /* add@2x.png */,
+				3546C2321D51D21F00EC66A9 /* add@3x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -200,10 +219,25 @@
 		3546C2131D5192FA00EC66A9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				3546C2171D51939D00EC66A9 /* UITextField+Util.h */,
-				3546C2181D51939D00EC66A9 /* UITextField+Util.m */,
+				3546C2171D51939D00EC66A9 /* UITextField+Ex.h */,
+				3546C2181D51939D00EC66A9 /* UITextField+Ex.m */,
+				3546C2351D51D63100EC66A9 /* UILabel+Ex.h */,
+				3546C2361D51D63100EC66A9 /* UILabel+Ex.m */,
+				3546C2411D51E12900EC66A9 /* UIView+TTCategory.h */,
+				3546C2421D51E12900EC66A9 /* UIView+TTCategory.m */,
+				3546C2541D51E70300EC66A9 /* NSString+Ex.h */,
+				3546C2551D51E70300EC66A9 /* NSString+Ex.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		3546C2461D51E37F00EC66A9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				3546C2471D51E3B400EC66A9 /* FontHeightManager.h */,
+				3546C2481D51E3B400EC66A9 /* FontHeightManager.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		7851C647F5B0EA9F2EE4D386 /* Frameworks */ = {
@@ -312,6 +346,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3546C2331D51D21F00EC66A9 /* add@2x.png in Resources */,
+				3546C2341D51D21F00EC66A9 /* add@3x.png in Resources */,
 				350600221D50AC4B00DAFF6C /* LaunchScreen.storyboard in Resources */,
 				3506001F1D50AC4B00DAFF6C /* Assets.xcassets in Resources */,
 				3506001D1D50AC4B00DAFF6C /* Main.storyboard in Resources */,
@@ -428,9 +464,13 @@
 				3546C20E1D5183BE00EC66A9 /* README.md in Sources */,
 				3546C2091D51800800EC66A9 /* InfoVC.m in Sources */,
 				3506001A1D50AC4B00DAFF6C /* ViewController.m in Sources */,
+				3546C23F1D51DD0300EC66A9 /* MomentCell.m in Sources */,
 				350600171D50AC4B00DAFF6C /* AppDelegate.m in Sources */,
-				3546C2121D51928800EC66A9 /* CUSTextField.m in Sources */,
-				3546C2191D51939D00EC66A9 /* UITextField+Util.m in Sources */,
+				3546C2431D51E12900EC66A9 /* UIView+TTCategory.m in Sources */,
+				3546C2491D51E3B400EC66A9 /* FontHeightManager.m in Sources */,
+				3546C2561D51E70300EC66A9 /* NSString+Ex.m in Sources */,
+				3546C2371D51D63100EC66A9 /* UILabel+Ex.m in Sources */,
+				3546C2191D51939D00EC66A9 /* UITextField+Ex.m in Sources */,
 				3546C20C1D51801900EC66A9 /* DiscoverVC.m in Sources */,
 				350600141D50AC4B00DAFF6C /* main.m in Sources */,
 			);
@@ -563,6 +603,7 @@
 			baseConfigurationReference = EA985B6D2B93201A75E0D6A4 /* Pods-MJ_iOS_Proj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = MJ_iOS_Proj/Info.plist;
@@ -577,6 +618,7 @@
 			baseConfigurationReference = 5C26E0F5234B720D5F9CA943 /* Pods-MJ_iOS_Proj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = MJ_iOS_Proj/Info.plist;

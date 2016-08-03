@@ -1,5 +1,5 @@
 //
-//  UITextField+Util.h
+//  UITextField+Ex.h
 //  MJ_iOS_Proj
 //
 //  Created by minjie on 03/08/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITextField (Util)
+@interface UITextField (Ex)
 -(instancetype)initWithPlaceHolder:(NSString *)placeholder;
 
 @end
