@@ -14,6 +14,9 @@
 		3506001F1D50AC4B00DAFF6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3506001E1D50AC4B00DAFF6C /* Assets.xcassets */; };
 		350600221D50AC4B00DAFF6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350600201D50AC4B00DAFF6C /* LaunchScreen.storyboard */; };
 		3506002D1D50AC4B00DAFF6C /* MJ_iOS_ProjTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3506002C1D50AC4B00DAFF6C /* MJ_iOS_ProjTests.m */; };
+		3546C2091D51800800EC66A9 /* InfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2081D51800800EC66A9 /* InfoVC.m */; };
+		3546C20C1D51801900EC66A9 /* DiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C20B1D51801900EC66A9 /* DiscoverVC.m */; };
+		3546C20E1D5183BE00EC66A9 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3546C20D1D5183BE00EC66A9 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,13 @@
 		350600281D50AC4B00DAFF6C /* MJ_iOS_ProjTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MJ_iOS_ProjTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3506002C1D50AC4B00DAFF6C /* MJ_iOS_ProjTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJ_iOS_ProjTests.m; sourceTree = "<group>"; };
 		3506002E1D50AC4B00DAFF6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3546C1FB1D517A1500EC66A9 /* UtilMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilMacro.h; sourceTree = "<group>"; };
+		3546C2061D517F3500EC66A9 /* UIMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIMacro.h; sourceTree = "<group>"; };
+		3546C2071D51800800EC66A9 /* InfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoVC.h; sourceTree = "<group>"; };
+		3546C2081D51800800EC66A9 /* InfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoVC.m; sourceTree = "<group>"; };
+		3546C20A1D51801900EC66A9 /* DiscoverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverVC.h; sourceTree = "<group>"; };
+		3546C20B1D51801900EC66A9 /* DiscoverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverVC.m; sourceTree = "<group>"; };
+		3546C20D1D5183BE00EC66A9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,11 @@
 		350600111D50AC4B00DAFF6C /* MJ_iOS_Proj */ = {
 			isa = PBXGroup;
 			children = (
+				3546C2051D517F2300EC66A9 /* Macros */,
+				3546C2041D517F1700EC66A9 /* Service */,
+				3546C2031D517F0900EC66A9 /* Model */,
+				3546C2021D517EFF00EC66A9 /* View */,
+				3546C2011D517EF700EC66A9 /* VC */,
 				350600151D50AC4B00DAFF6C /* AppDelegate.h */,
 				350600161D50AC4B00DAFF6C /* AppDelegate.m */,
 				350600181D50AC4B00DAFF6C /* ViewController.h */,
@@ -97,6 +112,8 @@
 		350600121D50AC4B00DAFF6C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3546C20F1D51866500EC66A9 /* Images */,
+				3546C20D1D5183BE00EC66A9 /* README.md */,
 				350600131D50AC4B00DAFF6C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -109,6 +126,54 @@
 				3506002E1D50AC4B00DAFF6C /* Info.plist */,
 			);
 			path = MJ_iOS_ProjTests;
+			sourceTree = "<group>";
+		};
+		3546C2011D517EF700EC66A9 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				3546C2071D51800800EC66A9 /* InfoVC.h */,
+				3546C2081D51800800EC66A9 /* InfoVC.m */,
+				3546C20A1D51801900EC66A9 /* DiscoverVC.h */,
+				3546C20B1D51801900EC66A9 /* DiscoverVC.m */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		3546C2021D517EFF00EC66A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3546C2031D517F0900EC66A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3546C2041D517F1700EC66A9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		3546C2051D517F2300EC66A9 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				3546C2061D517F3500EC66A9 /* UIMacro.h */,
+				3546C1FB1D517A1500EC66A9 /* UtilMacro.h */,
+			);
+			name = Macros;
+			sourceTree = "<group>";
+		};
+		3546C20F1D51866500EC66A9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3546C20E1D5183BE00EC66A9 /* README.md in Sources */,
+				3546C2091D51800800EC66A9 /* InfoVC.m in Sources */,
 				3506001A1D50AC4B00DAFF6C /* ViewController.m in Sources */,
 				350600171D50AC4B00DAFF6C /* AppDelegate.m in Sources */,
+				3546C20C1D51801900EC66A9 /* DiscoverVC.m in Sources */,
 				350600141D50AC4B00DAFF6C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +470,7 @@
 				350600331D50AC4B00DAFF6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		350600341D50AC4B00DAFF6C /* Build configuration list for PBXNativeTarget "MJ_iOS_ProjTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +479,7 @@
 				350600361D50AC4B00DAFF6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

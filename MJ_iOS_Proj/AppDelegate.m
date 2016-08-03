@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "InfoVC.h"
+#import "DiscoverVC.h"
+
 
 @interface AppDelegate ()
 
@@ -17,6 +20,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    
+    // Create the main UI skeleton
+    UITabBarController *tabController=[[UITabBarController alloc]init];
+    UINavigationController *nav_Info=[[UINavigationController alloc]initWithRootViewController:[[InfoVC alloc]init]];
+    UINavigationController *nav_Discover=[[UINavigationController alloc]initWithRootViewController:[[DiscoverVC alloc]init]];
+    tabController.viewControllers=@[nav_Info, nav_Discover];
+    nav_Info.tabBarItem.title=@"Info";
+    nav_Discover.tabBarItem.title=@"Discover";
+
+    _window.rootViewController=tabController;
+    
+
+    [_window makeKeyAndVisible];
+    
     return YES;
 }
 
