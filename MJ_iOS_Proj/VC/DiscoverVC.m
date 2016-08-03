@@ -7,6 +7,15 @@
 //
 
 #import "DiscoverVC.h"
+#import "UIMacro.h"
+
+#import "MomentCell.h"
+
+
+@interface DiscoverVC()<UITableViewDelegate, UITableViewDataSource>
+
+@end
+
 
 @implementation DiscoverVC
 
@@ -21,10 +30,48 @@
     self.view.backgroundColor=[UIColor grayColor];
     self.navigationItem.title=@"Discover";
     
+    [self setupUI];
+    
     // gesture
     UISwipeGestureRecognizer *swipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(action_swipeRight:)];
     [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:swipeRight];
+}
+
+
+#pragma mark - UI
+- (void)setupUI
+{
+    UITableView *tableView=[[UITableView alloc]init];
+    tableView.delegate=self;
+    tableView.dataSource=self;
+}
+
+
+#pragma mark - Delegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellID_Moment=@"cellID_Moment";
+    
+    MomentCell *cell=[[MomentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID_Moment];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //
 }
 
 
