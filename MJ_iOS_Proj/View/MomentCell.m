@@ -14,8 +14,6 @@
 #import "UIMacro.h"
 #import "FontHeightManager.h"
 
-#define MOMENTCELL_VERTI_OFFSET 10.0f
-
 
 @implementation MomentCell
 
@@ -49,10 +47,10 @@
         imgv.left=lblName.left;
         imgv.width=PIC_WIDTH;
         imgv.height=PIC_WIDTH;
-        
-        
     }
     
     return self;
 }
+
+
 @end

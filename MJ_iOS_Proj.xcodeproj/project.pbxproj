@@ -26,6 +26,7 @@
 		3546C2491D51E3B400EC66A9 /* FontHeightManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2481D51E3B400EC66A9 /* FontHeightManager.m */; };
 		3546C2561D51E70300EC66A9 /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2551D51E70300EC66A9 /* NSString+Ex.m */; };
 		3546C2651D52D65600EC66A9 /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2641D52D65600EC66A9 /* UIView+Ex.m */; };
+		3546C26D1D53203700EC66A9 /* PicCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C26C1D53203700EC66A9 /* PicCollectionCell.m */; };
 		D8DB4099EAE2DC4210CB534B /* libPods-MJ_iOS_ProjTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 772A42204E65CBF4257780E1 /* libPods-MJ_iOS_ProjTests.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 		3546C2571D52CFE200EC66A9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		3546C2631D52D65600EC66A9 /* UIView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ex.h"; sourceTree = "<group>"; };
 		3546C2641D52D65600EC66A9 /* UIView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ex.m"; sourceTree = "<group>"; };
+		3546C26B1D53203700EC66A9 /* PicCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicCollectionCell.h; sourceTree = "<group>"; };
+		3546C26C1D53203700EC66A9 /* PicCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicCollectionCell.m; sourceTree = "<group>"; };
 		4CB00AC84CC0F730D0A7209F /* Pods-MJ_iOS_ProjTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_ProjTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_ProjTests/Pods-MJ_iOS_ProjTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C26E0F5234B720D5F9CA943 /* Pods-MJ_iOS_Proj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_Proj.release.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_Proj/Pods-MJ_iOS_Proj.release.xcconfig"; sourceTree = "<group>"; };
 		71C19DA2C7C9D92C35AE0D36 /* Pods-MJ_iOS_ProjTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_ProjTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_ProjTests/Pods-MJ_iOS_ProjTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,9 +153,9 @@
 		350600121D50AC4B00DAFF6C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				350600131D50AC4B00DAFF6C /* main.m */,
 				3546C2571D52CFE200EC66A9 /* README.md */,
 				3546C20F1D51866500EC66A9 /* Images */,
-				350600131D50AC4B00DAFF6C /* main.m */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -182,6 +185,8 @@
 			children = (
 				3546C23D1D51DD0300EC66A9 /* MomentCell.h */,
 				3546C23E1D51DD0300EC66A9 /* MomentCell.m */,
+				3546C26B1D53203700EC66A9 /* PicCollectionCell.h */,
+				3546C26C1D53203700EC66A9 /* PicCollectionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				3546C2091D51800800EC66A9 /* InfoVC.m in Sources */,
 				3506001A1D50AC4B00DAFF6C /* ViewController.m in Sources */,
 				3546C23F1D51DD0300EC66A9 /* MomentCell.m in Sources */,
+				3546C26D1D53203700EC66A9 /* PicCollectionCell.m in Sources */,
 				350600171D50AC4B00DAFF6C /* AppDelegate.m in Sources */,
 				3546C2431D51E12900EC66A9 /* UIView+TTCategory.m in Sources */,
 				3546C2491D51E3B400EC66A9 /* FontHeightManager.m in Sources */,

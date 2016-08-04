@@ -8,9 +8,17 @@
 
 #import "InfoVC.h"
 #import "UITextField+Ex.h"
-#import "Masonry.h"
 #import "UIMacro.h"
 #import "UIView+Ex.h"
+#include "UIView+TTCategory.h"
+
+#import "PicCollectionCell.h"
+
+#define CELLID_Pic @"cellID_Pic"
+
+@interface InfoVC()<UICollectionViewDelegate, UICollectionViewDataSource>
+
+@end
 
 
 @implementation InfoVC
@@ -39,52 +47,84 @@
 // responders
 GEN_ResignAllResponders
 
+
 #pragma mark - UI 
 - (void)setupUI
 {
-    UITextField *txtfName=[[UITextField alloc]initWithPlaceHolder:@"Your Name"];
-    UITextView *txtvContent=[[UITextView alloc]init];
+    UIScrollView *container=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-TAB_BAR_HEIGHT)];
+    container.backgroundColor=[UIColor yellowColor];
     
-    UIButton *btnAdd=[[UIButton alloc]init];
-    [btnAdd setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
+    UITextField *txtfName=[[UITextField alloc]initWithPlaceHolder:@"Your Name"];
+    txtfName.returnKeyType=UIReturnKeyDone;
+    
+    UITextView *txtvContent=[[UITextView alloc]init];
+    txtvContent.returnKeyType=UIReturnKeyDone;
+    
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc]init];
+    flowLayout.itemSize=CGSizeMake(PIC_WIDTH, PIC_WIDTH);
+    flowLayout.minimumLineSpacing=COLLECTION_ITEM_DIST;
+    flowLayout.minimumInteritemSpacing=14.0f;
+    
+    UICollectionView *collectionView=[[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    collectionView.delegate=self;
+    collectionView.dataSource=self;
+    collectionView.backgroundColor=[UIColor blueColor];
+    [collectionView registerClass:[PicCollectionCell class] forCellWithReuseIdentifier:@"cellID_Pic"];
     
     UIButton *btnSave=[[UIButton alloc]init];
     [btnSave setTitle:@"Save" forState:UIControlStateNormal];
     
-    [self.view addSubview:txtfName];
-    [self.view addSubview:txtvContent];
-    [self.view addSubview:btnAdd];
-    [self.view addSubview:btnSave];
+    // add
+    [container addSubview:txtfName];
+    [container addSubview:txtvContent];
+    [container addSubview:collectionView];
+    [container addSubview:btnSave];
+    [self.view addSubview:container];
 
+    // layout
+    txtfName.top=WIDGET_VERTI_MARGIN;
+    txtfName.left=WIDGET_HORI_MARGIN;
+    txtfName.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
+    txtfName.height=TEXTFIELD_HEIGHT;
+    
+    txtvContent.top=txtfName.bottom+WIDGET_COMMON_OFFSET;
+    txtvContent.left=WIDGET_HORI_MARGIN;
+    txtvContent.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
+    txtvContent.height=TEXTFIELD_HEIGHT*2;
+    
+    collectionView.top=txtvContent.bottom+WIDGET_COMMON_OFFSET;
+    collectionView.left=WIDGET_HORI_MARGIN;
+    collectionView.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
+    collectionView.height=COLLECTION_ITEM_DIST*2+PIC_WIDTH*3;
 
-    [txtfName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.view.mas_top).mas_offset(NAV_AND_STATUS_BAR_HEIGHT+WIDGET_VERTI_MARGIN);
-        make.left.mas_equalTo(self.view.mas_left).mas_offset(WIDGET_HORI_MARGIN);
-        make.right.mas_equalTo(self.view.mas_right).mas_offset(-WIDGET_HORI_MARGIN);
-        make.height.mas_equalTo(TEXTFIELD_HEIGHT);
-    }];
+    btnSave.top=collectionView.bottom+WIDGET_COMMON_OFFSET;
+    btnSave.left=WIDGET_HORI_MARGIN;
+    btnSave.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
+    btnSave.height=BUTTON_HEIGHT;
     
-    [txtvContent mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(txtfName.mas_bottom).mas_offset(WIDGET_COMMON_OFFSET);
-        make.left.mas_equalTo(self.view.mas_left).mas_offset(WIDGET_HORI_MARGIN);
-        make.right.mas_equalTo(self.view.mas_right).mas_offset(-WIDGET_HORI_MARGIN);
-        make.height.mas_equalTo(TEXTFIELD_HEIGHT*2);
-    }];
-    
-    [btnAdd mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(txtvContent.mas_bottom).mas_offset(WIDGET_COMMON_OFFSET);
-        make.left.mas_equalTo(self.view.mas_left).mas_offset(WIDGET_HORI_MARGIN);
-        make.width.mas_equalTo(PIC_WIDTH);
-        make.height.mas_equalTo(PIC_WIDTH);
-    }];
-    
-    [btnSave mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(btnAdd.mas_bottom).mas_offset(WIDGET_COMMON_OFFSET);
-        make.left.mas_equalTo(self.view.mas_left).mas_offset(WIDGET_HORI_MARGIN);
-        make.right.mas_equalTo(self.view.mas_right).mas_offset(-WIDGET_HORI_MARGIN);
-        make.height.mas_equalTo(BUTTON_HEIGHT);
-    }];
+    container.contentSize=CGSizeMake(SCREEN_WIDTH, btnSave.bottom);
 }
+
+
+#pragma mark - Delegate
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 9;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PicCollectionCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:CELLID_Pic forIndexPath:indexPath];
+    cell.backgroundColor=[UIColor redColor];
+    
+    return cell;
+}
+
 
 
 #pragma mark - Actions
@@ -92,5 +132,6 @@ GEN_ResignAllResponders
 {
     [self.navigationController.tabBarController setSelectedIndex:1];
 }
+
 
 @end

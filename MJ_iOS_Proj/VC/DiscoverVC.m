@@ -8,6 +8,7 @@
 
 #import "DiscoverVC.h"
 #import "UIMacro.h"
+#import "FontHeightManager.h"
 
 #import "MomentCell.h"
 
@@ -60,7 +61,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 200;
+    return WIDGET_VERTI_MARGIN*2+fontHeight_14+fontHeight_14+MOMENTCELL_VERTI_OFFSET*2+ (COLLECTION_ITEM_DIST*2+PIC_WIDTH*3);
 }
 
 

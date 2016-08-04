@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define MOMENTCELL_VERTI_OFFSET 10.0f
+
+
 @interface MomentCell : UITableViewCell
 
 @end
