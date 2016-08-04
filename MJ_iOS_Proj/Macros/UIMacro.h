@@ -26,6 +26,10 @@
 // Top bar total height
 #define NAV_AND_STATUS_BAR_HEIGHT (NAV_BAR_HEIGHT+STATUS_BAR_HEIGHT)
 
+// tab bar
+#define TAB_BAR_HEIGHT 49.0f
+
+
 /// widgets dimensions
 #define WIDGET_COMMON_OFFSET 30.0f
 
@@ -36,6 +40,7 @@
 #define TEXTFIELD_HEIGHT 34.0f
 #define BUTTON_HEIGHT 40.0f
 
+#define PIC_WIDTH 60.0f
 
 /// fonts
 #define fontHeight_12 ([FontHeightManager sharedManager].fontHeightOf12)
@@ -49,6 +54,14 @@
 #define Font_Size14 [UIFont systemFontOfSize:14.0f]
 #define Font_Size15 [UIFont systemFontOfSize:15.0f]
 #define Font_Size16 [UIFont systemFontOfSize:16.0f]
+
+/// generated code
+// resign all first responders in current VC
+#define GEN_ResignAllResponders \
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{\
+[self.view resignAllFirstResponder];\
+[super touchesBegan:touches withEvent:event];\
+}
 
 
 #endif /* UIMacro_h */

@@ -42,9 +42,11 @@
 #pragma mark - UI
 - (void)setupUI
 {
-    UITableView *tableView=[[UITableView alloc]init];
+    UITableView *tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-TAB_BAR_HEIGHT)];
     tableView.delegate=self;
     tableView.dataSource=self;
+    
+    [self.view addSubview:tableView];
 }
 
 
@@ -58,14 +60,16 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 200;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellID_Moment=@"cellID_Moment";
-    
-    MomentCell *cell=[[MomentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID_Moment];
+    MomentCell *cell=[tableView dequeueReusableCellWithIdentifier:cellID_Moment];
+    if (!cell) {
+        cell=[[MomentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID_Moment];
+    }
     
     return cell;
 }

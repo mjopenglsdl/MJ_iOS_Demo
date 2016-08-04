@@ -17,7 +17,6 @@
 		3506002D1D50AC4B00DAFF6C /* MJ_iOS_ProjTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3506002C1D50AC4B00DAFF6C /* MJ_iOS_ProjTests.m */; };
 		3546C2091D51800800EC66A9 /* InfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2081D51800800EC66A9 /* InfoVC.m */; };
 		3546C20C1D51801900EC66A9 /* DiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C20B1D51801900EC66A9 /* DiscoverVC.m */; };
-		3546C20E1D5183BE00EC66A9 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3546C20D1D5183BE00EC66A9 /* README.md */; };
 		3546C2191D51939D00EC66A9 /* UITextField+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2181D51939D00EC66A9 /* UITextField+Ex.m */; };
 		3546C2331D51D21F00EC66A9 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3546C2311D51D21F00EC66A9 /* add@2x.png */; };
 		3546C2341D51D21F00EC66A9 /* add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3546C2321D51D21F00EC66A9 /* add@3x.png */; };
@@ -26,6 +25,7 @@
 		3546C2431D51E12900EC66A9 /* UIView+TTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2421D51E12900EC66A9 /* UIView+TTCategory.m */; };
 		3546C2491D51E3B400EC66A9 /* FontHeightManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2481D51E3B400EC66A9 /* FontHeightManager.m */; };
 		3546C2561D51E70300EC66A9 /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2551D51E70300EC66A9 /* NSString+Ex.m */; };
+		3546C2651D52D65600EC66A9 /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2641D52D65600EC66A9 /* UIView+Ex.m */; };
 		D8DB4099EAE2DC4210CB534B /* libPods-MJ_iOS_ProjTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 772A42204E65CBF4257780E1 /* libPods-MJ_iOS_ProjTests.a */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +59,6 @@
 		3546C2081D51800800EC66A9 /* InfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoVC.m; sourceTree = "<group>"; };
 		3546C20A1D51801900EC66A9 /* DiscoverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverVC.h; sourceTree = "<group>"; };
 		3546C20B1D51801900EC66A9 /* DiscoverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverVC.m; sourceTree = "<group>"; };
-		3546C20D1D5183BE00EC66A9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3546C2171D51939D00EC66A9 /* UITextField+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Ex.h"; sourceTree = "<group>"; };
 		3546C2181D51939D00EC66A9 /* UITextField+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Ex.m"; sourceTree = "<group>"; };
 		3546C2311D51D21F00EC66A9 /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
@@ -74,6 +73,9 @@
 		3546C2481D51E3B400EC66A9 /* FontHeightManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontHeightManager.m; sourceTree = "<group>"; };
 		3546C2541D51E70300EC66A9 /* NSString+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ex.h"; sourceTree = "<group>"; };
 		3546C2551D51E70300EC66A9 /* NSString+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ex.m"; sourceTree = "<group>"; };
+		3546C2571D52CFE200EC66A9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		3546C2631D52D65600EC66A9 /* UIView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ex.h"; sourceTree = "<group>"; };
+		3546C2641D52D65600EC66A9 /* UIView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ex.m"; sourceTree = "<group>"; };
 		4CB00AC84CC0F730D0A7209F /* Pods-MJ_iOS_ProjTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_ProjTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_ProjTests/Pods-MJ_iOS_ProjTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C26E0F5234B720D5F9CA943 /* Pods-MJ_iOS_Proj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_Proj.release.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_Proj/Pods-MJ_iOS_Proj.release.xcconfig"; sourceTree = "<group>"; };
 		71C19DA2C7C9D92C35AE0D36 /* Pods-MJ_iOS_ProjTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_ProjTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_ProjTests/Pods-MJ_iOS_ProjTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,8 +150,8 @@
 		350600121D50AC4B00DAFF6C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3546C2571D52CFE200EC66A9 /* README.md */,
 				3546C20F1D51866500EC66A9 /* Images */,
-				3546C20D1D5183BE00EC66A9 /* README.md */,
 				350600131D50AC4B00DAFF6C /* main.m */,
 			);
 			path = "Supporting Files";
@@ -227,6 +229,8 @@
 				3546C2421D51E12900EC66A9 /* UIView+TTCategory.m */,
 				3546C2541D51E70300EC66A9 /* NSString+Ex.h */,
 				3546C2551D51E70300EC66A9 /* NSString+Ex.m */,
+				3546C2631D52D65600EC66A9 /* UIView+Ex.h */,
+				3546C2641D52D65600EC66A9 /* UIView+Ex.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -461,7 +465,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3546C20E1D5183BE00EC66A9 /* README.md in Sources */,
 				3546C2091D51800800EC66A9 /* InfoVC.m in Sources */,
 				3506001A1D50AC4B00DAFF6C /* ViewController.m in Sources */,
 				3546C23F1D51DD0300EC66A9 /* MomentCell.m in Sources */,
@@ -469,6 +472,7 @@
 				3546C2431D51E12900EC66A9 /* UIView+TTCategory.m in Sources */,
 				3546C2491D51E3B400EC66A9 /* FontHeightManager.m in Sources */,
 				3546C2561D51E70300EC66A9 /* NSString+Ex.m in Sources */,
+				3546C2651D52D65600EC66A9 /* UIView+Ex.m in Sources */,
 				3546C2371D51D63100EC66A9 /* UILabel+Ex.m in Sources */,
 				3546C2191D51939D00EC66A9 /* UITextField+Ex.m in Sources */,
 				3546C20C1D51801900EC66A9 /* DiscoverVC.m in Sources */,

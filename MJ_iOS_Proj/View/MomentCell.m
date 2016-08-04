@@ -14,11 +14,15 @@
 #import "UIMacro.h"
 #import "FontHeightManager.h"
 
+#define MOMENTCELL_VERTI_OFFSET 10.0f
+
 
 @implementation MomentCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.backgroundColor=[UIColor greenColor];
+        
         UILabel *lblName=[[UILabel alloc]initWithFont:Font_Size14 color:[UIColor blueColor]];
         lblName.text=@"Name";
         
@@ -35,6 +39,18 @@
         lblName.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
         lblName.top=WIDGET_VERTI_MARGIN;
         lblName.height=fontHeight_14;
+        
+        lblContent.left=lblName.left;
+        lblContent.width=lblName.width;
+        lblContent.top=lblName.bottom+MOMENTCELL_VERTI_OFFSET;
+        lblContent.height=fontHeight_14;
+        
+        imgv.top=lblContent.bottom+MOMENTCELL_VERTI_OFFSET;
+        imgv.left=lblName.left;
+        imgv.width=PIC_WIDTH;
+        imgv.height=PIC_WIDTH;
+        
+        
     }
     
     return self;

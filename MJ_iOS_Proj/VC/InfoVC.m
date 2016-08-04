@@ -10,8 +10,7 @@
 #import "UITextField+Ex.h"
 #import "Masonry.h"
 #import "UIMacro.h"
-
-#define BTN_ADD_WIDTH 60.0f
+#import "UIView+Ex.h"
 
 
 @implementation InfoVC
@@ -37,6 +36,8 @@
     
 }
 
+// responders
+GEN_ResignAllResponders
 
 #pragma mark - UI 
 - (void)setupUI
@@ -73,8 +74,8 @@
     [btnAdd mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(txtvContent.mas_bottom).mas_offset(WIDGET_COMMON_OFFSET);
         make.left.mas_equalTo(self.view.mas_left).mas_offset(WIDGET_HORI_MARGIN);
-        make.width.mas_equalTo(BTN_ADD_WIDTH);
-        make.height.mas_equalTo(BTN_ADD_WIDTH);
+        make.width.mas_equalTo(PIC_WIDTH);
+        make.height.mas_equalTo(PIC_WIDTH);
     }];
     
     [btnSave mas_makeConstraints:^(MASConstraintMaker *make) {
