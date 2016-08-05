@@ -40,9 +40,11 @@
 #define TEXTFIELD_HEIGHT 34.0f
 #define BUTTON_HEIGHT 40.0f
 
-#define PIC_WIDTH 70.0f
+#define THUMB_WIDTH 70.0f
+#define PIC_WIDTH 100.0f
 
-#define COLLECTION_ITEM_DIST 20.0f
+#define COLLECTION_ITEM_VERTI_DIST 20.0f
+#define COLLECTION_ITEM_HORI_DIST 20.0f
 
 
 /// fonts

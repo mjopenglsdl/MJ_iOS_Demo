@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "InfoVC.h"
 #import "DiscoverVC.h"
+#import "UtilClass.h"
+#import "UtilMacro.h"
 
 
 @interface AppDelegate ()
@@ -20,6 +22,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Non-UI stuff
+    [self setupDirectory];
+    
+    // Main window
     _window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     
     // Create the main UI skeleton
@@ -60,4 +67,19 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+#pragma mark - Util
+- (void)setupDirectory
+{
+    // create directory if not exist
+    NSString *strPicDirPath =[[UtilClass getDocumentsPath]stringByAppendingString:PATH_Pic];
+    
+    NSError *err;
+    if (![[NSFileManager defaultManager]fileExistsAtPath:strPicDirPath]) {
+        [[NSFileManager defaultManager]createDirectoryAtPath:strPicDirPath withIntermediateDirectories:NO attributes:nil error:&err];
+        if (err) {
+            NSLog(@"%@ >>> Direction creation error:%@",[self class] ,err);
+        }
+    }
+}
 @end

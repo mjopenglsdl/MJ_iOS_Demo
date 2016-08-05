@@ -28,6 +28,8 @@
 }
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
+    
     self.view.backgroundColor=[UIColor grayColor];
     self.navigationItem.title=@"Discover";
     
@@ -46,6 +48,7 @@
     UITableView *tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-TAB_BAR_HEIGHT)];
     tableView.delegate=self;
     tableView.dataSource=self;
+    [tableView registerClass:[MomentCell class] forCellReuseIdentifier:NSStringFromClass([MomentCell class])];
     
     [self.view addSubview:tableView];
 }
@@ -61,16 +64,12 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return WIDGET_VERTI_MARGIN*2+fontHeight_14+fontHeight_14+MOMENTCELL_VERTI_OFFSET*2+ (COLLECTION_ITEM_DIST*2+PIC_WIDTH*3);
+    return WIDGET_VERTI_MARGIN*2+fontHeight_14+fontHeight_14+MOMENTCELL_VERTI_OFFSET*2+ (COLLECTION_ITEM_VERTI_DIST*2+THUMB_WIDTH*3);
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellID_Moment=@"cellID_Moment";
-    MomentCell *cell=[tableView dequeueReusableCellWithIdentifier:cellID_Moment];
-    if (!cell) {
-        cell=[[MomentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID_Moment];
-    }
+    MomentCell *cell=[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MomentCell class]) forIndexPath:indexPath];
     
     return cell;
 }

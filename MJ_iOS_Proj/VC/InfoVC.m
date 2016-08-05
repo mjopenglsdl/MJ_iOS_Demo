@@ -7,14 +7,16 @@
 //
 
 #import "InfoVC.h"
+
 #import "UITextField+Ex.h"
 #import "UIMacro.h"
 #import "UIView+Ex.h"
-#include "UIView+TTCategory.h"
+#import "UIView+TTCategory.h"
+#import "UtilClass.h"
+#import "UtilMacro.h"
+#import "ChoosePhotoVC.h"
+#import "ThumbCollCell.h"
 
-#import "PicCollectionCell.h"
-
-#define CELLID_Pic @"cellID_Pic"
 
 @interface InfoVC()<UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
 
@@ -31,6 +33,8 @@
 }
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
+    
     // ui
     self.view.backgroundColor=[UIColor grayColor];
     self.navigationItem.title=@"Info";
@@ -69,15 +73,15 @@
     [btnSelect addTarget:self action:@selector(action_selectPic:) forControlEvents:UIControlEventTouchUpInside];
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc]init];
-    flowLayout.itemSize=CGSizeMake(PIC_WIDTH, PIC_WIDTH);
-    flowLayout.minimumLineSpacing=COLLECTION_ITEM_DIST;
+    flowLayout.itemSize=CGSizeMake(THUMB_WIDTH, THUMB_WIDTH);
+    flowLayout.minimumLineSpacing=COLLECTION_ITEM_VERTI_DIST;
     flowLayout.minimumInteritemSpacing=14.0f;
     
     UICollectionView *collectionView=[[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
     collectionView.delegate=self;
     collectionView.dataSource=self;
     collectionView.backgroundColor=[UIColor blueColor];
-    [collectionView registerClass:[PicCollectionCell class] forCellWithReuseIdentifier:@"cellID_Pic"];
+    [collectionView registerClass:[ThumbCollCell class] forCellWithReuseIdentifier:NSStringFromClass([ThumbCollCell class])];
     
     UIButton *btnSave=[[UIButton alloc]init];
     [btnSave setTitle:@"Save" forState:UIControlStateNormal];
@@ -112,7 +116,7 @@
     collectionView.top=btnSelect.bottom+WIDGET_COMMON_OFFSET;
     collectionView.left=WIDGET_HORI_MARGIN;
     collectionView.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
-    collectionView.height=COLLECTION_ITEM_DIST*2+PIC_WIDTH*3;
+    collectionView.height=COLLECTION_ITEM_VERTI_DIST*2+THUMB_WIDTH*3;
 
     btnSave.top=collectionView.bottom+WIDGET_COMMON_OFFSET;
     btnSave.left=WIDGET_HORI_MARGIN;
@@ -152,7 +156,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PicCollectionCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:CELLID_Pic forIndexPath:indexPath];
+    ThumbCollCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ThumbCollCell class]) forIndexPath:indexPath];
     cell.backgroundColor=[UIColor redColor];
     
     return cell;
@@ -161,7 +165,17 @@
 // image picker
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *img=[info objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *dataImg= UIImagePNGRepresentation(img);
     
+    NSString *strUniqueID=[UtilClass generateUUID];
+    NSString *filePath=[NSString stringWithFormat:@"%@/%@/%@.png", [UtilClass getDocumentsPath], PATH_Pic , strUniqueID];
+
+    NSError *err=nil;
+    BOOL result=[dataImg writeToFile:filePath options:NSDataWritingAtomic error:&err];
+    
+    if (false==result) {
+        NSLog(@"%@ >>> Failed to save the photo", [self class]);
+    }
 }
 
 
@@ -180,10 +194,9 @@
     }];
     // photo library
     UIAlertAction *actionSelect=[UIAlertAction actionWithTitle:@"Select Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        UIImagePickerController *pickerController=[[UIImagePickerController alloc]init];
-        pickerController.delegate=self;
-        pickerController.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:pickerController animated:YES completion:nil];
+        ChoosePhotoVC *choosePhotoVC = [[ChoosePhotoVC alloc]init];
+        UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:choosePhotoVC];
+        [self presentViewController:nav animated:YES completion:nil];
     }];
     // cancel
     UIAlertAction *actionCancel=[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];

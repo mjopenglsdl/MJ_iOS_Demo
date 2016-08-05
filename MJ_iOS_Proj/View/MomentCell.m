@@ -45,8 +45,8 @@
         
         imgv.top=lblContent.bottom+MOMENTCELL_VERTI_OFFSET;
         imgv.left=lblName.left;
-        imgv.width=PIC_WIDTH;
-        imgv.height=PIC_WIDTH;
+        imgv.width=THUMB_WIDTH;
+        imgv.height=THUMB_WIDTH;
     }
     
     return self;
