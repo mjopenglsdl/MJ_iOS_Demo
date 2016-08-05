@@ -8,10 +8,12 @@
 
 #import "ThumbCollCell.h"
 
-@implementation ThumbCollCell
--(instancetype)init{
-    if (self=[super init]) {
 
+
+@implementation ThumbCollCell
+-(instancetype)initWithFrame:(CGRect)frame{
+    if (self=[super initWithFrame:frame]) {
+        
     }
     return self;
 }

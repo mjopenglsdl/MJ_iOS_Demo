@@ -1,4 +1,4 @@
-# MJ_iOS_Proj
+# MJ_iOS_Demo
 
 iOS Demo
 * Test of my iOS skill

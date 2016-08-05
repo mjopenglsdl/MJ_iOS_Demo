@@ -17,6 +17,7 @@
 #import "ChoosePhotoVC.h"
 #import "ThumbCollCell.h"
 
+#import <AssetsLibrary/ALAsset.h>
 
 @interface InfoVC()<UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
 
@@ -194,9 +195,15 @@
     }];
     // photo library
     UIAlertAction *actionSelect=[UIAlertAction actionWithTitle:@"Select Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        ChoosePhotoVC *choosePhotoVC = [[ChoosePhotoVC alloc]init];
-        UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:choosePhotoVC];
-        [self presentViewController:nav animated:YES completion:nil];
+        ALAuthorizationStatus authStatus=[ALAssetsLibrary authorizationStatus];
+        if (authStatus==ALAuthorizationStatusRestricted || authStatus ==ALAuthorizationStatusDenied) {
+            UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"Info" message:@"You have to allow access to photo for this app" delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+            [alertView show];
+        }else{
+            ChoosePhotoVC *choosePhotoVC = [[ChoosePhotoVC alloc]init];
+            UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:choosePhotoVC];
+            [self presentViewController:nav animated:YES completion:nil];
+        }
     }];
     // cancel
     UIAlertAction *actionCancel=[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];

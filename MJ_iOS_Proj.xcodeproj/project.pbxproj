@@ -23,6 +23,8 @@
 		353C3D661D54AEB600E1FA56 /* uncheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 353C3D621D54AEB600E1FA56 /* uncheck@2x.png */; };
 		353C3D671D54AEB600E1FA56 /* uncheck@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 353C3D631D54AEB600E1FA56 /* uncheck@3x.png */; };
 		353C3D6A1D54B16B00E1FA56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 353C3D681D54B16B00E1FA56 /* Main.storyboard */; };
+		353C3D6D1D54BAFB00E1FA56 /* NSDictionary+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 353C3D6C1D54BAFB00E1FA56 /* NSDictionary+Ex.m */; };
+		353C3D701D54BB4C00E1FA56 /* NSArray+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 353C3D6F1D54BB4C00E1FA56 /* NSArray+Ex.m */; };
 		3546C2091D51800800EC66A9 /* InfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2081D51800800EC66A9 /* InfoVC.m */; };
 		3546C20C1D51801900EC66A9 /* DiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C20B1D51801900EC66A9 /* DiscoverVC.m */; };
 		3546C2191D51939D00EC66A9 /* UITextField+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2181D51939D00EC66A9 /* UITextField+Ex.m */; };
@@ -71,6 +73,10 @@
 		353C3D621D54AEB600E1FA56 /* uncheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck@2x.png"; sourceTree = "<group>"; };
 		353C3D631D54AEB600E1FA56 /* uncheck@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck@3x.png"; sourceTree = "<group>"; };
 		353C3D691D54B16B00E1FA56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		353C3D6B1D54BAFB00E1FA56 /* NSDictionary+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Ex.h"; sourceTree = "<group>"; };
+		353C3D6C1D54BAFB00E1FA56 /* NSDictionary+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Ex.m"; sourceTree = "<group>"; };
+		353C3D6E1D54BB4C00E1FA56 /* NSArray+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Ex.h"; sourceTree = "<group>"; };
+		353C3D6F1D54BB4C00E1FA56 /* NSArray+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Ex.m"; sourceTree = "<group>"; };
 		3546C1FB1D517A1500EC66A9 /* UtilMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilMacro.h; sourceTree = "<group>"; };
 		3546C2061D517F3500EC66A9 /* UIMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIMacro.h; sourceTree = "<group>"; };
 		3546C2071D51800800EC66A9 /* InfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoVC.h; sourceTree = "<group>"; };
@@ -258,6 +264,10 @@
 				3546C2551D51E70300EC66A9 /* NSString+Ex.m */,
 				3546C2631D52D65600EC66A9 /* UIView+Ex.h */,
 				3546C2641D52D65600EC66A9 /* UIView+Ex.m */,
+				353C3D6B1D54BAFB00E1FA56 /* NSDictionary+Ex.h */,
+				353C3D6C1D54BAFB00E1FA56 /* NSDictionary+Ex.m */,
+				353C3D6E1D54BB4C00E1FA56 /* NSArray+Ex.h */,
+				353C3D6F1D54BB4C00E1FA56 /* NSArray+Ex.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -498,8 +508,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				353C3D6D1D54BAFB00E1FA56 /* NSDictionary+Ex.m in Sources */,
 				3546C2091D51800800EC66A9 /* InfoVC.m in Sources */,
 				3546C23F1D51DD0300EC66A9 /* MomentCell.m in Sources */,
+				353C3D701D54BB4C00E1FA56 /* NSArray+Ex.m in Sources */,
 				3546C26D1D53203700EC66A9 /* ThumbCollCell.m in Sources */,
 				353C3D491D5438AE00E1FA56 /* UtilClass.m in Sources */,
 				350600171D50AC4B00DAFF6C /* AppDelegate.m in Sources */,
@@ -649,6 +661,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = MJ_iOS_Proj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mj.MJ-iOS-Proj777";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -667,6 +680,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = MJ_iOS_Proj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mj.MJ-iOS-Proj777";
 				PRODUCT_NAME = "$(TARGET_NAME)";
