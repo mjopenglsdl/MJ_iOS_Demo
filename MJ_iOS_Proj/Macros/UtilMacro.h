@@ -41,5 +41,9 @@ return self;                                                \
 // File path
 #define PATH_Pic @"/pic"
 
+/// import
+#import "NSArray+Ex.h"
+#import "NSDictionary+Ex.h"
+
 
 #endif /* UtilMacro_h */
