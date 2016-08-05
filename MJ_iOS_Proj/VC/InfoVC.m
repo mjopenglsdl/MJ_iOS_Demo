@@ -16,7 +16,7 @@
 
 #define CELLID_Pic @"cellID_Pic"
 
-@interface InfoVC()<UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface InfoVC()<UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 @end
 
@@ -56,9 +56,11 @@
     
     UITextField *txtfName=[[UITextField alloc]initWithPlaceHolder:@"Your Name"];
     txtfName.returnKeyType=UIReturnKeyDone;
+    txtfName.delegate=self;
     
     UITextView *txtvContent=[[UITextView alloc]init];
     txtvContent.returnKeyType=UIReturnKeyDone;
+    txtvContent.delegate=self;
     
     UIButton *btnSelect=[[UIButton alloc]init];
     [btnSelect setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -122,6 +124,21 @@
 
 
 #pragma mark - Delegate
+// txt field
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+// txt view
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+    }
+    return true;
+}
+
 // collection view
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
