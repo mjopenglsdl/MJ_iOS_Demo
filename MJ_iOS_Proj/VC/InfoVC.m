@@ -16,7 +16,7 @@
 
 #define CELLID_Pic @"cellID_Pic"
 
-@interface InfoVC()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface InfoVC()<UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
 
@@ -44,21 +44,27 @@
     
 }
 
-// responders
-GEN_ResignAllResponders
-
 
 #pragma mark - UI 
 - (void)setupUI
 {
     UIScrollView *container=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-TAB_BAR_HEIGHT)];
     container.backgroundColor=[UIColor yellowColor];
+    UITapGestureRecognizer *gesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(action_resignResponder:)];
+    gesture.numberOfTapsRequired=1;
+    [container addGestureRecognizer:gesture];
     
     UITextField *txtfName=[[UITextField alloc]initWithPlaceHolder:@"Your Name"];
     txtfName.returnKeyType=UIReturnKeyDone;
     
     UITextView *txtvContent=[[UITextView alloc]init];
     txtvContent.returnKeyType=UIReturnKeyDone;
+    
+    UIButton *btnSelect=[[UIButton alloc]init];
+    [btnSelect setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    btnSelect.layer.borderWidth=1.0f;
+    [btnSelect setTitle:@"Select Picture" forState:UIControlStateNormal];
+    [btnSelect addTarget:self action:@selector(action_selectPic:) forControlEvents:UIControlEventTouchUpInside];
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc]init];
     flowLayout.itemSize=CGSizeMake(PIC_WIDTH, PIC_WIDTH);
@@ -73,10 +79,14 @@ GEN_ResignAllResponders
     
     UIButton *btnSave=[[UIButton alloc]init];
     [btnSave setTitle:@"Save" forState:UIControlStateNormal];
+    btnSave.layer.borderWidth=1.0f;
+    [btnSave setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btnSave addTarget:self action:@selector(action_save:) forControlEvents:UIControlEventTouchUpInside];
     
     // add
     [container addSubview:txtfName];
     [container addSubview:txtvContent];
+    [container addSubview:btnSelect];
     [container addSubview:collectionView];
     [container addSubview:btnSave];
     [self.view addSubview:container];
@@ -92,7 +102,12 @@ GEN_ResignAllResponders
     txtvContent.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
     txtvContent.height=TEXTFIELD_HEIGHT*2;
     
-    collectionView.top=txtvContent.bottom+WIDGET_COMMON_OFFSET;
+    btnSelect.top=txtvContent.bottom+WIDGET_COMMON_OFFSET;
+    btnSelect.left=WIDGET_HORI_MARGIN;
+    btnSelect.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
+    btnSelect.height=BUTTON_HEIGHT;
+    
+    collectionView.top=btnSelect.bottom+WIDGET_COMMON_OFFSET;
     collectionView.left=WIDGET_HORI_MARGIN;
     collectionView.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
     collectionView.height=COLLECTION_ITEM_DIST*2+PIC_WIDTH*3;
@@ -107,6 +122,7 @@ GEN_ResignAllResponders
 
 
 #pragma mark - Delegate
+// collection view
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
@@ -125,12 +141,56 @@ GEN_ResignAllResponders
     return cell;
 }
 
+// image picker
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    UIImage *img=[info objectForKey:UIImagePickerControllerOriginalImage];
+    
+}
 
 
 #pragma mark - Actions
+- (void)action_selectPic:(UIButton *)sender
+{
+    UIAlertController *alertController=[UIAlertController alertControllerWithTitle:nil message:@"Select Picture" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    /// action tabs
+    // photo
+    UIAlertAction *actionTakePhoto=[UIAlertAction actionWithTitle:@"Take Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImagePickerController *pickerController=[[UIImagePickerController alloc]init];
+        pickerController.delegate=self;
+        pickerController.sourceType=UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:pickerController animated:YES completion:nil];
+    }];
+    // photo library
+    UIAlertAction *actionSelect=[UIAlertAction actionWithTitle:@"Select Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImagePickerController *pickerController=[[UIImagePickerController alloc]init];
+        pickerController.delegate=self;
+        pickerController.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:pickerController animated:YES completion:nil];
+    }];
+    // cancel
+    UIAlertAction *actionCancel=[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:actionTakePhoto];
+    [alertController addAction:actionSelect];
+    [alertController addAction:actionCancel];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)action_save:(UIButton *)sender
+{
+
+}
+
+
 - (void)action_swipeLeft:(id)sender
 {
     [self.navigationController.tabBarController setSelectedIndex:1];
+}
+
+- (void)action_resignResponder:(id)sender
+{
+    [self.view resignAllFirstResponder];
 }
 
 

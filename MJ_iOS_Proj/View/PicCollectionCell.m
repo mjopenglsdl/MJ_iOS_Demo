@@ -11,7 +11,7 @@
 @implementation PicCollectionCell
 -(instancetype)init{
     if (self=[super init]) {
-        self.backgroundColor=[UIColor redColor];
+
     }
     return self;
 }
