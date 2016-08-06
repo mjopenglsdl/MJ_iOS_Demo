@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface MomentModel : NSObject
+
+@property(copy,nonatomic) NSString *strRecordID;
 @property(copy,nonatomic) NSString *strName;
 @property(copy,nonatomic) NSString *strContent;
 @property(strong,nonatomic) NSArray *aryAssetUrls;
 
+- (NSString *) urlStringFromUrlArray;
 
 @end

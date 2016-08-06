@@ -35,6 +35,7 @@
 		3546C2561D51E70300EC66A9 /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2551D51E70300EC66A9 /* NSString+Ex.m */; };
 		3546C2651D52D65600EC66A9 /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C2641D52D65600EC66A9 /* UIView+Ex.m */; };
 		3546C26D1D53203700EC66A9 /* ThumbCollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3546C26C1D53203700EC66A9 /* ThumbCollCell.m */; };
+		35A2A66D1D559517000CFC92 /* MomentDBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A2A66C1D559517000CFC92 /* MomentDBService.m */; };
 		D8DB4099EAE2DC4210CB534B /* libPods-MJ_iOS_ProjTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 772A42204E65CBF4257780E1 /* libPods-MJ_iOS_ProjTests.a */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,8 @@
 		3546C2641D52D65600EC66A9 /* UIView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ex.m"; sourceTree = "<group>"; };
 		3546C26B1D53203700EC66A9 /* ThumbCollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbCollCell.h; sourceTree = "<group>"; };
 		3546C26C1D53203700EC66A9 /* ThumbCollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbCollCell.m; sourceTree = "<group>"; };
+		35A2A66B1D559517000CFC92 /* MomentDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MomentDBService.h; path = MJ_iOS_Proj/Categories/MomentDBService.h; sourceTree = SOURCE_ROOT; };
+		35A2A66C1D559517000CFC92 /* MomentDBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MomentDBService.m; path = MJ_iOS_Proj/Categories/MomentDBService.m; sourceTree = SOURCE_ROOT; };
 		4CB00AC84CC0F730D0A7209F /* Pods-MJ_iOS_ProjTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_ProjTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_ProjTests/Pods-MJ_iOS_ProjTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C26E0F5234B720D5F9CA943 /* Pods-MJ_iOS_Proj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_Proj.release.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_Proj/Pods-MJ_iOS_Proj.release.xcconfig"; sourceTree = "<group>"; };
 		71C19DA2C7C9D92C35AE0D36 /* Pods-MJ_iOS_ProjTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJ_iOS_ProjTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MJ_iOS_ProjTests/Pods-MJ_iOS_ProjTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,8 +162,8 @@
 				3546C2031D517F0900EC66A9 /* Model */,
 				3546C2021D517EFF00EC66A9 /* View */,
 				3546C2011D517EF700EC66A9 /* VC */,
-				350600161D50AC4B00DAFF6C /* AppDelegate.m */,
 				350600151D50AC4B00DAFF6C /* AppDelegate.h */,
+				350600161D50AC4B00DAFF6C /* AppDelegate.m */,
 				350600231D50AC4B00DAFF6C /* Info.plist */,
 				3506001E1D50AC4B00DAFF6C /* Assets.xcassets */,
 				353C3D681D54B16B00E1FA56 /* Main.storyboard */,
@@ -227,6 +230,8 @@
 		3546C2041D517F1700EC66A9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				35A2A66B1D559517000CFC92 /* MomentDBService.h */,
+				35A2A66C1D559517000CFC92 /* MomentDBService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				353C3D491D5438AE00E1FA56 /* UtilClass.m in Sources */,
 				350600171D50AC4B00DAFF6C /* AppDelegate.m in Sources */,
 				353C3D411D542B6A00E1FA56 /* MomentModel.m in Sources */,
+				35A2A66D1D559517000CFC92 /* MomentDBService.m in Sources */,
 				3546C2431D51E12900EC66A9 /* UIView+TTCategory.m in Sources */,
 				3546C2491D51E3B400EC66A9 /* FontHeightManager.m in Sources */,
 				3546C2561D51E70300EC66A9 /* NSString+Ex.m in Sources */,

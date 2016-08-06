@@ -41,7 +41,10 @@ return self;                                                \
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 
 // File path
-#define PATH_Pic @"/pic"
+#define PATH_DB @"/db"
+
+// table
+#define TABLE_Moment @"Moment"
 
 /// import
 #import "NSArray+Ex.h"

@@ -7,7 +7,21 @@
 //
 
 #import "MomentModel.h"
+#import "UtilClass.h"
+
 
 @implementation MomentModel
+-(instancetype)init
+{
+    if (self=[super init]) {
+        _strRecordID=[UtilClass generateUUID];
+    }
+    return self;
+}
+
+- (NSString *) urlStringFromUrlArray
+{
+    return nil;
+}
 
 @end

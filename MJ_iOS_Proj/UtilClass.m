@@ -8,6 +8,8 @@
 
 #import "UtilClass.h"
 
+#import "UtilMacro.h"
+
 
 @implementation UtilClass
 
@@ -34,5 +36,6 @@
     });
     return library;
 }
+
 
 @end

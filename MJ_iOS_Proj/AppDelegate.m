@@ -72,11 +72,11 @@
 - (void)setupDirectory
 {
     // create directory if not exist
-    NSString *strPicDirPath =[[UtilClass getDocumentsPath]stringByAppendingString:PATH_Pic];
+    NSString *strdbDirPath =[[UtilClass getDocumentsPath]stringByAppendingString:PATH_DB];
     
     NSError *err;
-    if (![[NSFileManager defaultManager]fileExistsAtPath:strPicDirPath]) {
-        [[NSFileManager defaultManager]createDirectoryAtPath:strPicDirPath withIntermediateDirectories:NO attributes:nil error:&err];
+    if (![[NSFileManager defaultManager]fileExistsAtPath:strdbDirPath]) {
+        [[NSFileManager defaultManager]createDirectoryAtPath:strdbDirPath withIntermediateDirectories:NO attributes:nil error:&err];
         if (err) {
             NSLog(@"%@ >>> Direction creation error:%@",[self class] ,err);
         }

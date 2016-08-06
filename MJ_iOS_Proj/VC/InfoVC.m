@@ -15,12 +15,15 @@
 #import "UtilMacro.h"
 #import "ChoosePhotoVC.h"
 #import "ThumbCollCell.h"
+#import "MomentDBService.h"
 
 #import <AssetsLibrary/ALAsset.h>
 
 @interface InfoVC()<UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, ChoosePhotoVCCallback>
 @property(strong, nonatomic) NSArray *aryALAsset;
 @property(strong, nonatomic) UICollectionView *collectionView;
+@property(strong, nonatomic) UITextField *txtfName;
+@property(strong, nonatomic) UITextView *txtvContent;
 
 @end
 
@@ -53,14 +56,14 @@
     gesture.numberOfTapsRequired=1;
     [container addGestureRecognizer:gesture];
     
-    UITextField *txtfName=[[UITextField alloc]initWithPlaceHolder:@"Your Name"];
-    txtfName.returnKeyType=UIReturnKeyDone;
-    txtfName.backgroundColor=[UIColor whiteColor];
-    txtfName.delegate=self;
+    _txtfName=[[UITextField alloc]initWithPlaceHolder:@"Your Name"];
+    _txtfName.returnKeyType=UIReturnKeyDone;
+    _txtfName.backgroundColor=[UIColor whiteColor];
+    _txtfName.delegate=self;
     
-    UITextView *txtvContent=[[UITextView alloc]init];
-    txtvContent.returnKeyType=UIReturnKeyDone;
-    txtvContent.delegate=self;
+    _txtvContent=[[UITextView alloc]init];
+    _txtvContent.returnKeyType=UIReturnKeyDone;
+    _txtvContent.delegate=self;
     
     UIButton *btnSelect=[[UIButton alloc]init];
     [btnSelect setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -86,25 +89,25 @@
     [btnSave addTarget:self action:@selector(action_save:) forControlEvents:UIControlEventTouchUpInside];
     
     // add
-    [container addSubview:txtfName];
-    [container addSubview:txtvContent];
+    [container addSubview:_txtfName];
+    [container addSubview:_txtvContent];
     [container addSubview:btnSelect];
     [container addSubview:_collectionView];
     [container addSubview:btnSave];
     [self.view addSubview:container];
 
     // layout
-    txtfName.top=WIDGET_VERTI_MARGIN;
-    txtfName.left=WIDGET_HORI_MARGIN;
-    txtfName.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
-    txtfName.height=TEXTFIELD_HEIGHT;
+    _txtfName.top=WIDGET_VERTI_MARGIN;
+    _txtfName.left=WIDGET_HORI_MARGIN;
+    _txtfName.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
+    _txtfName.height=TEXTFIELD_HEIGHT;
     
-    txtvContent.top=txtfName.bottom+WIDGET_COMMON_OFFSET;
-    txtvContent.left=WIDGET_HORI_MARGIN;
-    txtvContent.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
-    txtvContent.height=TEXTFIELD_HEIGHT*2;
+    _txtvContent.top=_txtfName.bottom+WIDGET_COMMON_OFFSET;
+    _txtvContent.left=WIDGET_HORI_MARGIN;
+    _txtvContent.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
+    _txtvContent.height=TEXTFIELD_HEIGHT*2;
     
-    btnSelect.top=txtvContent.bottom+WIDGET_COMMON_OFFSET;
+    btnSelect.top=_txtvContent.bottom+WIDGET_COMMON_OFFSET;
     btnSelect.left=WIDGET_HORI_MARGIN;
     btnSelect.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
     btnSelect.height=BUTTON_HEIGHT;
@@ -218,6 +221,25 @@
 
 - (void)action_save:(UIButton *)sender
 {
+    MomentModel *model=[[MomentModel alloc]init];
+    model.strName=_txtfName.text;
+    model.strContent=_txtvContent.text;
+    
+    NSMutableArray *muaryUrls=[[NSMutableArray alloc]init];
+    for (ALAsset *asset in _aryALAsset) {
+        [muaryUrls addObject: [asset defaultRepresentation].url.absoluteString] ;
+    }
+    model.aryAssetUrls=[muaryUrls copy];
+    
+    [[MomentDBService sharedService]addRecord:model];
+    
+    // clear UI
+    _txtfName.text=@"";
+    _txtvContent.text=@"";
+    _aryALAsset=nil;
+    [_collectionView reloadData];
+    
+    UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"Info" message:@"Info saved successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 
 }
 
