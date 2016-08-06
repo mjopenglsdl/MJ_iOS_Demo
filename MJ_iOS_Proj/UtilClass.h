@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+
 
 @interface UtilClass : NSObject
 
@@ -22,6 +24,14 @@
  *  @return Document path
  */
 + (NSString *) getDocumentsPath;
+
+
+/*!
+ *  Get the default ALAssetsLibrary
+ *
+ *  @return default ALAssetsLibrary
+ */
++ (ALAssetsLibrary *)defaultAssetsLibrary;
 
 
 @end

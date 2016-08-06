@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface PicCollCell : UICollectionViewCell
+@property(strong, nonatomic) UIImageView *imgvPhoto;
+@property(strong, nonatomic) UIImageView *imgvCheck;
+
+// pub interfaces
+-(void)setSelected;
+-(void)setUnSelected;
 
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ThumbCollCell : UICollectionViewCell
+@property(strong, nonatomic) UIImageView *imgvThumb;
 
 @end

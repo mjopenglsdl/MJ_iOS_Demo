@@ -12,26 +12,20 @@
 #import "UIMacro.h"
 #import "UIView+Ex.h"
 #import "UIView+TTCategory.h"
-#import "UtilClass.h"
 #import "UtilMacro.h"
 #import "ChoosePhotoVC.h"
 #import "ThumbCollCell.h"
 
 #import <AssetsLibrary/ALAsset.h>
 
-@interface InfoVC()<UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
+@interface InfoVC()<UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, ChoosePhotoVCCallback>
+@property(strong, nonatomic) NSArray *aryALAsset;
+@property(strong, nonatomic) UICollectionView *collectionView;
 
 @end
 
 
 @implementation InfoVC
-
--(instancetype)init{
-    if (self=[super init]) {
-
-    }
-    return self;
-}
 
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -61,6 +55,7 @@
     
     UITextField *txtfName=[[UITextField alloc]initWithPlaceHolder:@"Your Name"];
     txtfName.returnKeyType=UIReturnKeyDone;
+    txtfName.backgroundColor=[UIColor whiteColor];
     txtfName.delegate=self;
     
     UITextView *txtvContent=[[UITextView alloc]init];
@@ -74,15 +69,15 @@
     [btnSelect addTarget:self action:@selector(action_selectPic:) forControlEvents:UIControlEventTouchUpInside];
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc]init];
-    flowLayout.itemSize=CGSizeMake(THUMB_WIDTH, THUMB_WIDTH);
-    flowLayout.minimumLineSpacing=COLLECTION_ITEM_VERTI_DIST;
-    flowLayout.minimumInteritemSpacing=14.0f;
+    flowLayout.itemSize=CGSizeMake(THUMB_PIC_WIDTH, THUMB_PIC_WIDTH);
+    flowLayout.minimumLineSpacing=PIC_OFFSET;
+    flowLayout.minimumInteritemSpacing=PIC_OFFSET;
     
-    UICollectionView *collectionView=[[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-    collectionView.delegate=self;
-    collectionView.dataSource=self;
-    collectionView.backgroundColor=[UIColor blueColor];
-    [collectionView registerClass:[ThumbCollCell class] forCellWithReuseIdentifier:NSStringFromClass([ThumbCollCell class])];
+    _collectionView=[[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    _collectionView.delegate=self;
+    _collectionView.dataSource=self;
+    _collectionView.backgroundColor=[UIColor blueColor];
+    [_collectionView registerClass:[ThumbCollCell class] forCellWithReuseIdentifier:NSStringFromClass([ThumbCollCell class])];
     
     UIButton *btnSave=[[UIButton alloc]init];
     [btnSave setTitle:@"Save" forState:UIControlStateNormal];
@@ -94,7 +89,7 @@
     [container addSubview:txtfName];
     [container addSubview:txtvContent];
     [container addSubview:btnSelect];
-    [container addSubview:collectionView];
+    [container addSubview:_collectionView];
     [container addSubview:btnSave];
     [self.view addSubview:container];
 
@@ -114,12 +109,12 @@
     btnSelect.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
     btnSelect.height=BUTTON_HEIGHT;
     
-    collectionView.top=btnSelect.bottom+WIDGET_COMMON_OFFSET;
-    collectionView.left=WIDGET_HORI_MARGIN;
-    collectionView.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
-    collectionView.height=COLLECTION_ITEM_VERTI_DIST*2+THUMB_WIDTH*3;
+    _collectionView.top=btnSelect.bottom+WIDGET_COMMON_OFFSET;
+    _collectionView.left=WIDGET_HORI_MARGIN;
+    _collectionView.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
+    _collectionView.height=PIC_OFFSET*2+THUMB_PIC_WIDTH*3;
 
-    btnSave.top=collectionView.bottom+WIDGET_COMMON_OFFSET;
+    btnSave.top=_collectionView.bottom+WIDGET_COMMON_OFFSET;
     btnSave.left=WIDGET_HORI_MARGIN;
     btnSave.width=SCREEN_WIDTH-2*WIDGET_HORI_MARGIN;
     btnSave.height=BUTTON_HEIGHT;
@@ -152,31 +147,37 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 9;
+    return self.aryALAsset.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ThumbCollCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ThumbCollCell class]) forIndexPath:indexPath];
-    cell.backgroundColor=[UIColor redColor];
-    
+    ALAssetRepresentation *rep=[[self.aryALAsset objectAtIndex:indexPath.row]defaultRepresentation];
+    cell.imgvThumb.image=[[UIImage alloc]initWithCGImage:[rep fullResolutionImage] scale:rep.scale orientation:(UIImageOrientation)rep.orientation];
+
     return cell;
 }
 
 // image picker
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *img=[info objectForKey:UIImagePickerControllerOriginalImage];
-    NSData *dataImg= UIImagePNGRepresentation(img);
-    
-    NSString *strUniqueID=[UtilClass generateUUID];
-    NSString *filePath=[NSString stringWithFormat:@"%@/%@/%@.png", [UtilClass getDocumentsPath], PATH_Pic , strUniqueID];
 
-    NSError *err=nil;
-    BOOL result=[dataImg writeToFile:filePath options:NSDataWritingAtomic error:&err];
-    
-    if (false==result) {
-        NSLog(@"%@ >>> Failed to save the photo", [self class]);
-    }
+    ALAssetsLibrary *library=[UtilClass defaultAssetsLibrary];
+
+    [library writeImageToSavedPhotosAlbum:img.CGImage
+                                 metadata:[info objectForKey:UIImagePickerControllerMediaMetadata]
+                          completionBlock:^(NSURL *assetURL, NSError *error) {
+                              
+                              [[UtilClass defaultAssetsLibrary]assetForURL:assetURL resultBlock:^(ALAsset *asset) {
+                                  self.aryALAsset=@[asset];
+                                  [_collectionView reloadData];
+                              } failureBlock:^(NSError *error) {
+                                  ;
+                              }];
+                          }];
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+
 }
 
 
@@ -197,10 +198,11 @@
     UIAlertAction *actionSelect=[UIAlertAction actionWithTitle:@"Select Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         ALAuthorizationStatus authStatus=[ALAssetsLibrary authorizationStatus];
         if (authStatus==ALAuthorizationStatusRestricted || authStatus ==ALAuthorizationStatusDenied) {
-            UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"Info" message:@"You have to allow access to photo for this app" delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+            UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"Info" message:@"You have to allow access to photo for this app" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alertView show];
         }else{
             ChoosePhotoVC *choosePhotoVC = [[ChoosePhotoVC alloc]init];
+            choosePhotoVC.callback=self;
             UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:choosePhotoVC];
             [self presentViewController:nav animated:YES completion:nil];
         }
@@ -230,5 +232,32 @@
     [self.view resignAllFirstResponder];
 }
 
+
+#pragma mark - Callback
+-(void)photoChooseFinished:(NSArray *)alAssets
+{
+    if (alAssets.count<=9) {
+        self.aryALAsset=alAssets;
+    }
+    else
+    {
+        NSMutableArray *muary=[[NSMutableArray alloc]init];
+        for (NSInteger i=0; i<9; i++) {
+            [muary addObject:alAssets[i]];
+        }
+        self.aryALAsset=[muary copy];
+    }
+    
+    [_collectionView reloadData];
+}
+
+
+#pragma mark - Lazy loading
+- (NSArray *)aryALAsset{
+    if (!_aryALAsset) {
+        _aryALAsset=[[NSArray alloc]init];
+    }
+    return _aryALAsset;
+}
 
 @end

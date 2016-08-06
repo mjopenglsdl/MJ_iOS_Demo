@@ -11,7 +11,7 @@
 @interface MomentModel : NSObject
 @property(copy,nonatomic) NSString *strName;
 @property(copy,nonatomic) NSString *strContent;
-@property(strong,nonatomic) NSArray *aryPicUrls;
+@property(strong,nonatomic) NSArray *aryAssetUrls;
 
 
 @end

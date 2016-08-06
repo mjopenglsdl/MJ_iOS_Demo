@@ -37,6 +37,8 @@ return self;                                                \
 {if (SINGLETON_SHARED_INSTANCE(class_name)) return SINGLETON_SHARED_INSTANCE(class_name);}
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//weakself
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 
 // File path
 #define PATH_Pic @"/pic"
@@ -44,6 +46,6 @@ return self;                                                \
 /// import
 #import "NSArray+Ex.h"
 #import "NSDictionary+Ex.h"
-
+#import "UtilClass.h"
 
 #endif /* UtilMacro_h */

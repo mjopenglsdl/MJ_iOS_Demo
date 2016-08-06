@@ -8,12 +8,14 @@
 
 #import "ThumbCollCell.h"
 
-
+#import "UIMacro.h"
 
 @implementation ThumbCollCell
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self=[super initWithFrame:frame]) {
+        _imgvThumb=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, THUMB_PIC_WIDTH , THUMB_PIC_WIDTH)];
         
+        [self.contentView addSubview:_imgvThumb];
     }
     return self;
 }

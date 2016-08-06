@@ -64,7 +64,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return WIDGET_VERTI_MARGIN*2+fontHeight_14+fontHeight_14+MOMENTCELL_VERTI_OFFSET*2+ (COLLECTION_ITEM_VERTI_DIST*2+THUMB_WIDTH*3);
+    return WIDGET_VERTI_MARGIN*2+fontHeight_14+fontHeight_14+MOMENTCELL_VERTI_OFFSET*2+ (COLLECTION_ITEM_VERTI_DIST*2+0*3);
 }
 
 

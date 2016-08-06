@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ChoosePhotoVCCallback
+@required
+-(void)photoChooseFinished:(NSArray *)alAssets;
+
+@end
+
+
 @interface ChoosePhotoVC : UIViewController
+@property(weak, nonatomic) id<ChoosePhotoVCCallback> callback;
 
 @end
