@@ -16,5 +16,6 @@
 @property(strong,nonatomic) NSArray *aryAssetUrls;
 
 - (NSString *) urlStringFromUrlArray;
+- (void)setAssetUrlWithUrlString:(NSString *)urlStr;
 
 @end

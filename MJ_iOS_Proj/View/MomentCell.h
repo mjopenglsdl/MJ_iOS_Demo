@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/ALAsset.h>
 
 #define MOMENTCELL_VERTI_OFFSET 10.0f
 
 
 @interface MomentCell : UITableViewCell
+@property(strong, nonatomic) UILabel *lblName;
+@property(strong, nonatomic) UILabel *lblContent;
+
+-(void)setupCollectionViewWithUrlArray:(NSArray *)urls;
 
 @end

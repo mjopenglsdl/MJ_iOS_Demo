@@ -240,7 +240,7 @@
     [_collectionView reloadData];
     
     UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"Info" message:@"Info saved successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-
+    [alertView show];
 }
 
 

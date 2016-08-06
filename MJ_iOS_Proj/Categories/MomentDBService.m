@@ -82,6 +82,34 @@ SINGLETON_GENERATOR(MomentDBService, sharedService);
 }
 
 
+- (NSArray *)queryRecordWithCount:(NSInteger)count
+{
+    __block NSMutableArray *allRecordArray = [NSMutableArray array];
+    
+    [self.dbQueue inDatabase:^(FMDatabase *db) {
+        NSString *sqlString;
+        if (count>0) {
+            NSString *strConditon=[NSString stringWithFormat:@" LIMIT %@", [NSNumber numberWithInt:count]];
+            sqlString = [NSString stringWithFormat:@"SELECT recordID, name, content, urls FROM %@ %@", TABLE_Moment, strConditon];
+        }
+        
+        FMResultSet * rs = [db executeQuery:sqlString];
+        while([rs next]) {
+            MomentModel *model= [[MomentModel alloc]init];
+            model.strRecordID=[rs stringForColumn:@"recordID"];
+            model.strName=[rs stringForColumn:@"name"];
+            model.strContent=[rs stringForColumn:@"content"];
+            [model setAssetUrlWithUrlString:[rs stringForColumn:@"urls"]];
+            
+            [allRecordArray addObject:model];
+        }
+    }];
+    
+    return [NSArray arrayWithArray:allRecordArray];
+}
+
+
+
 #pragma mark - LAZY Loading
 -(FMDatabaseQueue *)dbQueue
 {

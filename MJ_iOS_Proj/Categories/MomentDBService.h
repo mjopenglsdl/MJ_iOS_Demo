@@ -18,6 +18,6 @@
 // CRUD
 - (BOOL)addRecord:(MomentModel *)model;
 - (BOOL)removeRecordWithID:(NSString *)recordID;
-
+- (NSArray *)queryRecordWithCount:(NSInteger) count;
 
 @end

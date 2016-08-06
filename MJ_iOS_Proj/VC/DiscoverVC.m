@@ -9,12 +9,14 @@
 #import "DiscoverVC.h"
 #import "UIMacro.h"
 #import "FontHeightManager.h"
+#import "MomentDBService.h"
 
 #import "MomentCell.h"
 
 
 @interface DiscoverVC()<UITableViewDelegate, UITableViewDataSource>
-
+@property(strong, nonatomic) NSArray *aryMomentModels;
+@property(assign, nonatomic) NSInteger cellHeight;
 @end
 
 
@@ -22,9 +24,17 @@
 
 -(instancetype)init{
     if (self=[super init]) {
-
+        _cellHeight=WIDGET_VERTI_MARGIN*2+fontHeight_14+fontHeight_14+MOMENTCELL_VERTI_OFFSET*2+ PIC_OFFSET*2+THUMB_PIC_WIDTH*3;
     }
     return self;
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    
 }
 
 -(void)viewDidLoad{
@@ -33,12 +43,20 @@
     self.view.backgroundColor=[UIColor grayColor];
     self.navigationItem.title=@"Discover";
     
+    [self setupData];
     [self setupUI];
     
     // gesture
     UISwipeGestureRecognizer *swipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(action_swipeRight:)];
     [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:swipeRight];
+}
+
+
+#pragma mark - Data
+- (void)setupData
+{
+    _aryMomentModels=[[MomentDBService sharedService]queryRecordWithCount:15];
 }
 
 
@@ -60,17 +78,21 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return _aryMomentModels.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return WIDGET_VERTI_MARGIN*2+fontHeight_14+fontHeight_14+MOMENTCELL_VERTI_OFFSET*2+ (COLLECTION_ITEM_VERTI_DIST*2+0*3);
+    return _cellHeight;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MomentCell *cell=[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MomentCell class]) forIndexPath:indexPath];
-    
+    MomentModel *model=(MomentModel *)_aryMomentModels[indexPath.row];
+    cell.lblName.text= model.strName;
+    cell.lblContent.text=model.strContent;
+    [cell setupCollectionViewWithUrlArray:model.aryAssetUrls];
+
     return cell;
 }
 

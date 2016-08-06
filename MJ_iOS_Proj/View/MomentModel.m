@@ -21,7 +21,24 @@
 
 - (NSString *) urlStringFromUrlArray
 {
-    return nil;
+    NSMutableString *strTotal=[[NSMutableString alloc]init];
+    
+    for (NSInteger i=0; i< _aryAssetUrls.count; i++) {
+        if (0!=i) {
+            [strTotal appendString:@"|"];
+        }
+        [strTotal appendString:_aryAssetUrls[i]];
+    }
+    
+    return strTotal;
 }
+
+- (void)setAssetUrlWithUrlString:(NSString *)urlStr
+{
+    if (urlStr) {
+        _aryAssetUrls=[urlStr componentsSeparatedByString:@"|"];
+    }
+}
+
 
 @end
